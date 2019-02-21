@@ -1,7 +1,24 @@
-<div class="container">
-  <%= simple_form_for @cocktail do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo %>
-    <%= f.submit "Add a cocktail", class: "btn btn-primary" %>
-  <% end %>
-</div>
+<section class="wow fadeIn" id="start-your-project">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
+        <div class="position-relative overflow-hidden width-100">
+          <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Make a new cocktail</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <%= simple_form_for @cocktail do |f| %>
+        <div class="col-md-6">
+          <%= f.input :name, class:"big-input"%>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :photo, class:"big-input"%>
+        </div>
+        <div class="col-md-12 text-center">
+          <%= f.submit "Add a cocktail", class: "btn btn-transparent-dark-gray btn-large margin-20px-top" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

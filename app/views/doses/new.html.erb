@@ -1,12 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>Create a dose for <%= @cocktail.name %></h1>
+<section class="wow fadeIn" id="start-your-project">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-12 col-xs-12 center-col text-center margin-100px-bottom xs-margin-40px-bottom">
+        <div class="position-relative overflow-hidden width-100">
+          <span class="text-small text-outside-line-full alt-font font-weight-600 text-uppercase">Add a new ingredient</span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :description %>
-        <%= f.association :ingredient%>
-        <%= f.button :submit %>
+        <div class="col-md-6">
+          <%= f.input :description, class:"big-input"%>
+        </div>
+        <div class="col-md-6">
+          <%= f.association :ingredient, class:"big-input"%>
+        </div>
+        <div class="col-md-12 text-center">
+          <%= f.submit "Add a dose", class: "btn btn-transparent-dark-gray btn-large margin-20px-top" %>
+        </div>
       <% end %>
     </div>
   </div>
-</div>
+</section>

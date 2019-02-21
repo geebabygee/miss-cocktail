@@ -1,24 +1,22 @@
-<div class="bannerr" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>)">
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <h3 class="upcase"><%= @cocktail.name %></h3>
-      <h3><%= Ingredient%></h3>
-      <% if @cocktail.doses.any? %>
-        <% @cocktail.doses.each do |dose| %>
-          <p><%= dose.description %></p>
-          <p><%= dose.ingredient.name %></p>
-        <% end %>
-        <p><%= link_to new_cocktail_dose_path(@cocktail), class: "text-add" do %>
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-          <% end %>
-        </p>
-      <% else %>
-        <p>This cocktail has no ingredients yet!</p>
-        <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) ,class:"btn btn-primary"%>
-      <% end %>
+    <%= render 'shared/navbar' %>
+<section class="wow fadeIn  bg-light-gray top-space no-padding">
+  <div class="container-fluid padding-50px-bottom">
+    <div class="row equalize sm-equalize-auto">
+      <div class="col-md-8 col-sm-12 col-xs-12 no-padding cover-background" style="background:url(<%= cl_image_path @cocktail.photo, crop: :fill %>); height: 700px;"></div>
+      <div class="col-md-4 col-sm-12 col-xs-12 no-padding">
+        <div class="padding-seventeen-lr padding-twenty-tb md-padding-40px-lr sm-padding-50px-tb xs-padding-30px-all">
+          <h3 class="alt-font text-extra-dark-gray font-weight-600 no-margin-bottom"><%= @cocktail.name %></h3>
+          <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-25px-tb"></div>
+          <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">Ingredients</p>
+          <ul class="list-style-3 text-medium">
+            <% @cocktail.doses.each do |dose| %>
+              <li><%= dose.description %> of <%= dose.ingredient.name %></li>
+            <% end %>
+          </ul>
+          <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) ,class:"btn btn-medium btn-deep-pink margin-40px-top text-link-deep-pink xs-margin-10px-top" %>
+        </div>
+      </div>
     </div>
+    <%= link_to 'Back', cocktails_path, class:"btn btn-medium btn-deep-pink margin-40px-top text-link-deep-pink xs-margin-10px-top" %>
   </div>
-  <%= link_to 'Back', cocktails_path, class: "btn btn-flat" %>
-</div>
+</section>
