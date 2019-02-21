@@ -1,2 +1,24 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<div class="bannerr" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>)">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h3 class="upcase"><%= @cocktail.name %></h3>
+      <h3><%= Ingredient%></h3>
+      <% if @cocktail.doses.any? %>
+        <% @cocktail.doses.each do |dose| %>
+          <p><%= dose.description %></p>
+          <p><%= dose.ingredient.name %></p>
+        <% end %>
+        <p><%= link_to new_cocktail_dose_path(@cocktail), class: "text-add" do %>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          <% end %>
+        </p>
+      <% else %>
+        <p>This cocktail has no ingredients yet!</p>
+        <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) ,class:"btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'Back', cocktails_path, class: "btn btn-flat" %>
+</div>
