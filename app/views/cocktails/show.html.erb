@@ -9,11 +9,17 @@
           <div class="bg-deep-pink separator-line-horrizontal-full display-inline-block margin-25px-tb"></div>
           <p class="width-90 width-100 margin-35px-bottom text-medium line-height-28">Ingredients</p>
           <ul class="list-style-3 text-medium">
-            <% @cocktail.doses.each do |dose| %>
-              <li><%= dose.description %> of <%= dose.ingredient.name %></li>
+            <% if @cocktail.doses.any? %>
+              <% @cocktail.doses.each do |dose| %>
+                <li><%= dose.description %> of <%= dose.ingredient.name %> <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete do %>
+                    <i class="fa fa-trash destroy_dose"></i>
+                  <% end %></li>
+              <% end %>
+              <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) ,class:"btn btn-medium btn-deep-pink margin-40px-top text-link-deep-pink xs-margin-10px-top" %>
+            <% else %>
+              <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) ,class:"btn btn-medium btn-deep-pink margin-40px-top text-link-deep-pink xs-margin-10px-top" %>
             <% end %>
           </ul>
-          <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail) ,class:"btn btn-medium btn-deep-pink margin-40px-top text-link-deep-pink xs-margin-10px-top" %>
         </div>
       </div>
     </div>

@@ -1,36 +1,46 @@
-<section class="no-padding parallax" data-stellar-background-ratio="0.5" style="background-image: url('https://images.unsplash.com/photo-1531002423613-b7d0e005770b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
+<section class="parallax" data-stellar-background-ratio="0.5" style="background-image: url('https://images.unsplash.com/photo-1531002423613-b7d0e005770b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')">
   <div class="opacity-extra-medium bg-black"></div>
   <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 pull-right bg-deep-pink-opacity padding-six-lr md-padding-seven-lr padding-five-tb xs-padding-30px-all last-paragraph-no-margin">
     <div class="box-separator-line width-180px bg-white md-width-120px sm-width-90px sm-display-none"></div>
     <h1 class="font-weight-600 alt-font text-white width-95 sm-width-100">Miss Cocktail.</h1>
-    <p class="text-large font-weight-300 text-white width-75 md-width-85 sm-width-95 xs-width-100 xs-display-none">Change your life, learn how to cocktail.</p>
+    <p class="text-large font-weight-300 text-white width-75 md-width-85 sm-width-95 xs-width-100 xs-display-none">We exist to create a sophisticated and cool cocktail culture in the fabulous city of Lisbon</p>
     <%= link_to "Add a new Cocktail", new_cocktail_path, class:"btn btn-medium btn-white margin-40px-top text-link-deep-pink xs-margin-10px-top" %>
   </div>
 </section>
+<div class="row padding-ten-top">
+  <div class="col-md-8 col-sm-11 col-xs-12 center-col text-center margin-six-bottom xs-margin-10px-bottom">
+    <div class="alt-font text-medium-gray margin-5px-bottom text-uppercase text-small">About Our Cocktails</div>
+    <h6 class="font-weight-300 text-extra-dark-gray no-margin">We exist to create a <strong class="font-weight-400">sophisticated and cool cocktail culture</strong> in the fabulous city of Lisbon by providing a <strong class="font-weight-400">combination of contemporary and classic cocktails made using only premium spirits and fresh fruits.</strong></h6
+        </div>
+  </div>
+</div>
+<div class="row no-padding">
+  <div class="col-md-8 col-sm-11 col-xs-12 center-col text-center margin-six-bottom xs-margin-30px-bottom">
+    <div class="alt-font text-medium-gray margin-5px-bottom text-uppercase text-small">Our Cocktails</div>
+  </div>
+</div>
 <!-- end portfolio section -->
-<div class="wrapper">
-  <div class="container margin-top">
-    <div class="row">
-      <div class="cards">
-        <% @cocktails.each do |cocktail| %>
-          <figure>
-            <%= link_to cocktail_path(cocktail) do %>
-              <div class="portfolio-img position-relative text-center overflow-hidden darken">
-                <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
-              </div>
-              <figcaption class="bg-white">
-                <div class="portfolio-hover-main text-center">
-                  <div class="portfolio-hover-box vertical-align-middle">
-                    <div class="portfolio-hover-content position-relative">
-                      <a href="single-project-page-01.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block"><%= cocktail.name %></span></a>
-                    </div>
+<div class="container">
+  <div class="row">
+    <div class="cards">
+      <% @cocktails.each do |cocktail| %>
+        <figure>
+          <%= link_to cocktail_path(cocktail) do %>
+            <div class="portfolio-img position-relative text-center overflow-hidden darken">
+              <%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %>
+            </div>
+            <figcaption class="bg-white">
+              <div class="portfolio-hover-main text-center">
+                <div class="portfolio-hover-box vertical-align-middle">
+                  <div class="portfolio-hover-content position-relative">
+                    <a href="single-project-page-01.html"><span class="line-height-normal font-weight-600 text-small alt-font margin-5px-bottom text-extra-dark-gray text-uppercase display-block"><%= cocktail.name %></span></a>
                   </div>
                 </div>
-              </figcaption>
-            <% end %>
-          </figure>
-        <% end %>
-      </div>
+              </div>
+            </figcaption>
+          <% end %>
+        </figure>
+      <% end %>
     </div>
   </div>
 </div>
